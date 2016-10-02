@@ -196,7 +196,7 @@
     box-shadow: none;
 }
 .card-title{
-
+  padding-left:15px;
 }
 .card-skill h4{
     font-size: 16px;
@@ -226,6 +226,64 @@
 #landing{
   padding-top:60px; 
 }
+.skill-icons{
+  list-style-type: none;
+}
+.skill-icons li{
+  display: inline-block;
+}
+.skill-text p{
+    font-size: 16px;
+    line-height: 20px;
+    max-height: 40px;
+    margin-top: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+    margin-right: 20px;
+}
+.skill-text ul{
+  margin:0 px;
+  padding: 0px;
+  margin-left: -5px;
+}
+.skill-text ul li{
+  
+    margin: 2px 5px;
+    padding: 3px 10px;
+    color: white;
+    font-weight: 100;
+    background-color: #4285f4;
+    border-radius: 20px;
+}
+.skill-row .fa-stack{
+  margin-left: 10px;
+}
+
+.skill-row-bugfix{
+  border-top: 0.25px solid #ACACAC;
+}
+
+.row.skill-row{
+  padding: 3px;
+    cursor: pointer;
+    margin: 0px 0px;
+    border-bottom: 0.25px solid #ACACAC;
+}
+.hidden-card.toggleShow{
+  width: 360px;
+  z-index: 20;
+}
+.hidden-card{
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    z-index: -1;
+    background-color: white;
+    -webkit-transition: width 0.5s, height 4s;
+    transition: width 0.5s, height 4s;
+}
+
 header .row{
     color: white;
     background-color: #4285f4;
