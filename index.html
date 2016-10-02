@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-material/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- Custom CSS -->
+    <link href="material.css" rel="stylesheet">
+
+</head>
+
+<body ng-app="App" ng-controller="Controller">
+
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            
+        </div>
+        
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <header class="container-fluid">
+              <div class="row">
+
+                <div class="col-xs-12 col-sm-6">
+                  <a class="hamburger" href="#menu-toggle" id="menu-toggle" role="button">
+                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                  </a>
+                  
+                  <h3 class="pull-left">{{bio.name}}</h3></div>
+                <div class="col-xs-12 col-sm-6 text-right">
+                  <ul class="socialMedia">
+                    <li ng-repeat="social in socialMedia">
+                      <a href="{{social.link}}"><i class="fa fa-1x {{social.icon}}" aria-hidden="true"></i></a>
+                    </li>
+                  </ul>
+                </div>
+
+              </div>
+            </header> 
+            
+            <section id="landing" class="container">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="card card-bio card-h5">
+                    <div class="row"><img ng-src="{{bio.headshot}}"></div>
+                    <div class="row"><h2>{{bio.name}}</h2></div>
+                    <div class="row">
+                      <p>{{bio.address}}<br>{{bio.address2}}<br>{{bio.zip}}</p>
+                    </div>
+                    <div class="row"><p>{{bio.number}}</p></div>
+                    
+                    <div class="row"><p>{{bio.degree}}</p></div>
+                  </div> 
+                  <div class="card text-center card-h1">
+                      <p><a href="#">Resume</a></p>
+                    </div>
+
+                  </div> 
+
+                  <div class="col-xs-12 col-sm-6 col-md-8">
+                    <div class="row card card-h6 card-transparent">
+                    <h2 class="card-title">Skills</h2>
+                        <div class="col-xs-6 col-sm-12 col-md-4" ng-repeat="skill in skills">
+                          <div class="card card-skill card-h3">
+                          <img class="img-responsive" src="{{skill.skillImage}}" alt="{{skill.name}}"/>  
+                          <h4>{{skill.name}}</h4>
+                          <ul>
+                              <li ng-repeat="technology in skill.tech">{{technology}}</li>
+                            <ul>
+                         
+                              </div>
+                        <!-- <div class="col-xs-4 col-sm-2">
+                          <span class="fa-stack fa-3x">
+                            <i class="fa fa-circle fa-stack-2x">
+                            </i> 
+                            <i class="fa fa-users fa-stack-1x fa-inverse"></i>
+                          </span>
+                        </div>
+                        <div class="col-xs-8 col-sm-10">
+                            <h4>{{skill.name}}</h4>
+                            
+
+                        </div>  --> 
+                      </div>
+                    </div>
+                  </div>
+                  
+              
+                  
+              </div>
+
+            </section>
+        </div>
+        
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap-3.3.7-material/js/bootstrap.min.js"></script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    <script>
+      var app = angular.module('App', []);
+
+      app.controller('Controller', function($scope, $http) {
+          // $http.get('http://grafikos-studio.com/projects.json').success(function(data){
+          //     $scope.projects = data.projects;
+          //     $scope.skills = data.skills;
+          // });
+          $scope.socialMedia = [
+            {icon : "fa-linkedin", link : "http://www.linkedin.com/in/gareth-dsouza-74358a66"},
+            {icon : "fa-linkedin", link : "http://www.linkedin.com/in/gareth-dsouza-74358a66"},
+            {icon : "fa-linkedin", link : "http://www.linkedin.com/in/gareth-dsouza-74358a66"}
+          ];
+          $scope.bio = {"name":"Gareth Dsouza","headshot":"http://blog.scottrklinephoto.com/wp-content/uploads/2014/01/Scott_R_Kline_Square_Headshot.jpg","address":"1282 W 29th Street","address2":"Los Angeles CA","zip":"90007","number":"(323)-809-9061","degree":"Masters in Computer Science","university":"University of Souther California","description":"Passionate Full stack developer and with an eye for asthetic fron end design."};
+          $http.get('http://grafikos-studio.com/projects.json').success(function(data){
+            $scope.projects = data.projects;
+            $scope.skills = data.skills;
+          });
+      });
+          
+          
+
+    </script>
+
+  <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+{
+  "skills":[
+    {
+      "name":"Responsive web design",
+      "tech":["HTML5","CSS3","JS"],
+      "fa-icon":"",
+      "skillImage":"http://www.gettyimages.ie/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg"
+    },
+    {
+    "name":"Back-end Technologies",
+    "tech":["PHP",".Net"],
+    "fa-icon":"",
+    "skillImage":"http://www.gettyimages.ie/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg"
+    },
+    {
+    "name":"Programming languages",
+    "tech":["Python","C#","Java"],
+    "fa-icon":"",
+    "skillImage":"http://www.gettyimages.ie/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg"
+    },
+    {
+    "name":"Mobile Apps and Game development",
+    "tech":["Android","Unity 3D"],
+    "fa-icon":"",
+    "skillImage":"http://www.gettyimages.ie/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg"
+    },
+    {
+    "name":"Cloud computing platforms and CMS",
+    "tech":["AWS","SharePoint 2013"],
+    "fa-icon":"",
+    "skillImage":"http://www.gettyimages.ie/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg"
+    },
+    {
+    "name":"Graphic Design",
+    "tech":["Photoshop"],
+    "fa-icon":"",
+    "skillImage":"http://www.gettyimages.ie/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg"
+    }
+      
+  ],
+  "projects": [
+    {
+      "name":"Loop On",
+      "description":"Configured, setup and developed the serverside technologies for Loop On using AWS. Loop On is a high quality cloud based collaborative business management tool that helps users keep track of different work orders, tasks, current status of those tasks, device inventories and customized historical data collected over a large period of time. The app is currently in use by Facilities Management Services - USC.",
+      "tech":["PHP","MySQL","AWS"]
+    },
+    {
+      "name":"Stock Cash",
+      "description":"Designed and developed a web application that consumes the Markit-on-demand Stocks API. The academic project for the same  resides on the Google App Engine platform. The APIs were later consumed by a mobile application developed for Android Devices. As a personal project the same app is also hosted on AWS and the iOS version is available on the app store.",
+      "tech":["HTML5","CSS3","JS","PHP","MySQL","AWS/Google App Engine","Android"]
+    },
+    {
+      "name":"Gomoku game playing AI",
+      "description":"Developed a python program that took a given Gomoku gameboard and used a Greedy/Min-max algorithm with Alpha & Beta pruning to determine the next best move. The project required meto design and develop a heuristic function that would calculate probable moves scores and choosed the best move. I further developed a Web interface to play the game as a personal project.",
+      "tech":["Python","HTML5","CSS3","JS"]
+    },
+    {
+      "name":"Xango - Prototype",
+      "description":"Xango is an Augmented Reality based Digital Menu App for Restaurants of the Future. The application would generate 3D models of the dishes and augment the same at the customers table. The augmented dishes would help estimate portions and give customers a sense of what to expect.",
+      "tech":["Unity 3D","Vuforia SDK","C#"]
+    },
+    {
+      "name":"Paperplanes",
+      "description":"As a personal project I explored the Unity game engine and developed a simple platform mobile game. The endless runner type game allowed the user to maneuver a paper plane in a 2D Space and avoid obstacles. Scoring was based on how far the player flew the plane sucessfully without getting hit. The game was programmed in C#",
+      "tech":["Unity 3D","Photoshop","C#","Android"]
+    },
+    {
+      "name":"Counting Quakes",
+      "description":"As a personal project developed a Mashup Web Application that consumed of earthquake data from USGS. The app allows users to select a time range and a minumum magnitude to filter data. The json data recieved is parsed to generate a 3D globe using the WebGL Globe from Google Chrome experiments.",
+      "tech":["HTML5","CSS","JS","PHP"]
+    },
+    {
+      "name":"MSIDC Portal",
+      "description":"Developed a intranet portal for Microsoft Industrialized Development Center(MSIDC) at Capgemini India Pvt. Ltd. The portal was developed over SharePoint 2013. The first phase included developing the portal as SharePoint Web Parts. Later using responsive web UI frameworks and knockout.JS the portal was developed as a SharePoint App.",
+      "tech":["Sharepoint 2013","ASP.net","JS","CSS","HTML"]
+    },
+    {
+      "name":"MSIDC Operational Workflow",
+      "description":"As a personal project developed a Mashup Web Application that consumed of earthquake data from USGS. The app allows users to select a time range and a minumum magnitude to filter data. The json data recieved is parsed to generate a 3D globe using the WebGL Globe from Google Chrome experiments.",
+      "tech":["HTML5","CSS","JS","PHP"]
+    },
+    {
+      "name":"GIS Image Analysis using Fuzzy Logic",
+      "description":"Implemented a GIS system to analyze topographical changes such as deforestation, infrastructure and pollution in water bodies in geospatial images over time. Used a K-means clustering on image pixels to isolate groups of similar pixels. Used a fuzzy function to analyzed the pixel color of the cluster and determine the land type.",
+      "tech":["Matlab","Google Earth"]
+    }
+  ]
+}

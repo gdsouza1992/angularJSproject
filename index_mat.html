@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-material/css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="material.css">
+
+<body ng-app="App" ng-controller="Controller">
+
+<!-- Header code -->
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-2">
+                <img ng-src="{{headshot}}" class="img-responsive headshot">
+            </div>
+            <div class="col-xs-10">
+                <h2>{{title}}</h2>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<nav class="navbar">
+      <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+            </button>
+            
+
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          
+        </div>
+      </div>
+    </nav>
+
+
+<div class="container">
+    <section>
+        <ul>
+            <li ng-repeat="skill in skills">
+                <h3>{{ skill.name }}</h3>
+                <ul>
+                    <li ng-repeat="technology in skill.tech">
+                        {{technology}}
+                    </li>
+                </ul>
+            </li>
+        </ul> 
+    </section>
+
+
+    <section> 
+      <ul>
+          <li ng-repeat="project in projects">
+            <h3>{{ project.name }}</h3>
+            <p>{{project.description}}</p>
+            <ul>
+              <li ng-repeat="technology in project.tech">
+                {{technology}}
+              </li>
+            </ul>
+          </li>
+      </ul>
+    </section> 
+
+<!-- <select ng-model="selectedCar">
+<option ng-repeat="x in cars" value="{{x.model}}">{{x.model}}</option>
+</select>
+
+<h1>You selected: {{selectedCar}}</h1> -->
+
+</div>
+
+<script>
+var app = angular.module('App', []);
+
+app.controller('Controller', function($scope, $http) {
+    $http.get('http://grafikos-studio.com/projects.json').success(function(data){
+        $scope.projects = data.projects;
+        $scope.skills = data.skills;
+    });
+
+    $scope.title = "Gareth Dsouza";
+
+});
+
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap-3.3.7-material/js/bootstrap.min.js"></script>
+
+
+
+</body>
+</html>
+
