@@ -74,7 +74,7 @@
                         <h2 class="card-title">Skills</h2>
                       </div>
                       
-                        <div class="row skill-row" ng-repeat="skill in skills">
+                        <div class="row skill-row" ng-repeat="skill in skills" my-skill-post-repeat-directive data-target-key="{{skill.skillKey}}">
                           <!-- <div class="col-xs-4 text-right">
                             <span class="fa-stack fa-3x">
                               <i class="fa fa-circle fa-stack-2x">
@@ -82,7 +82,7 @@
                               <i class="fa fa-users fa-stack-1x fa-inverse"></i>
                           </span>
                           </div> -->
-                          <div class="col-xs-offset-2 col-xs-10 text-left skill-text">
+                          <div class="col-xs-offset-1 col-xs-11 text-left skill-text">
                             <p>{{skill.name}}</p>
                             <ul class="skill-icons">
                               <li ng-repeat="technology in skill.tech">{{technology}}</li>
@@ -96,21 +96,29 @@
 
                   <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="card card-h6 hidden-card">
-                        <i id="close" class="fa fa-arrow-left" aria-hidden="true"></i>
+                      <div class="row">
+                        <h2 class="card-title">{{skillPageTitle}}</h2>
+                        <img class="img-responsive" ng-src="{{skillPageImg}}">
+                        <p>{{skillPageDescription}}</p>
+                        <div class="text-center">
+                          <div id="close" class="btn btn-primary" aria-hidden="true">Back</div>  
+                        </div>
+                      </div>
+                      
                     </div>
                     <div class="card card-h6">
                       <div class="row">
                         <h2 class="card-title">About Me</h2>
                       </div>
                       
-                        <div class="row skill-row" ng-repeat="skill in skills" my-skill-post-repeat-directive>
-                          
-                          <div class="col-xs-offset-2 col-xs-10 text-left skill-text">
-                            <p>{{skill.name}}</p>
-                            <ul class="skill-icons">
-                              <li ng-repeat="technology in skill.tech">{{technology}}</li>
-                            <ul>
-                          </div>
+                        <div class="row">
+                          <div class="col-xs-12">
+                          <p>About.me (Usually styled as about.me) is a personal web hosting service co-founded by Ryan Freitas, Tony Conrad and Tim Young in October 2009.[1] The site offers registered users a simple platform from which to link multiple online identities, relevant external sites, and popular social networking websites such as Facebook, Flickr, Google+, Pinterest, LinkedIn, Twitter, Tumblr, and YouTube. It is characterized by its one-page user profiles, each with a large, often-artistic background image and abbreviated biography.
+
+                          On December 20, 2010, just four days after its public launch, About.me was acquired by AOL.[2] The company remained at AOL for a little over twenty-five months. On February 5, 2013, it was announced that Conrad had bought back majority control of About.me from AOL; although no specifics were revealed on the purchase price</p>
+                        
+                        </div>
+                        </div>
 
                         </div>  
                       </div>
@@ -141,6 +149,7 @@
 
     </script>
     <script>
+      var skillsModel;
       var app = angular.module('App', []);
 
       app.controller('Controller', function($scope, $http) {
@@ -148,28 +157,48 @@
           //     $scope.projects = data.projects;
           //     $scope.skills = data.skills;
           // });
+
+          //blankVarialbles
+          $scope.skillPageTitle="Temp";
+
           $scope.socialMedia = [
             {icon : "fa-linkedin", link : "http://www.linkedin.com/in/gareth-dsouza-74358a66"},
             {icon : "fa-linkedin", link : "http://www.linkedin.com/in/gareth-dsouza-74358a66"},
             {icon : "fa-linkedin", link : "http://www.linkedin.com/in/gareth-dsouza-74358a66"}
           ];
+          
           $scope.bio = {"name":"Gareth Dsouza","headshot":"http://blog.scottrklinephoto.com/wp-content/uploads/2014/01/Scott_R_Kline_Square_Headshot.jpg","address":"1282 W 29th Street","address2":"Los Angeles CA","zip":"90007","number":"(323)-809-9061","degree":"Masters in Computer Science","university":"University of Souther California","description":"Passionate Full stack developer and with an eye for asthetic fron end design."};
-          $http.get('http://grafikos-studio.com/projects.json').success(function(data){
+          $http.get('http://www-scf.usc.edu/~gdsouza/projects.json').success(function(data){
             $scope.projects = data.projects;
             $scope.skills = data.skills;
+            $scope.skillsModel = data.skillsModel;
           });
+          $scope.loadSkillCard = function(key){
+              var thisSkillModel = $scope.skillsModel[key];
+              $scope.skillPageTitle = thisSkillModel.title;
+              $scope.skillPageImg = thisSkillModel.image;
+              $scope.skillPageDescription = thisSkillModel.description;
+              $scope.$apply();
+              
+          }
+
+
       });
       
+     
           
 
     app.directive('mySkillPostRepeatDirective', function() {
       return function(scope, element, attrs) {
         if (scope.$last){
-          $(".skill-row:first").addClass("skill-row-bugfix");
+          
           $(".skill-row").click(function(e) {
             e.preventDefault();
             $(".hidden-card").addClass("toggleShow");
+            scope.loadSkillCard(this.getAttribute("data-target-key"));
+              
             });
+          $(".skill-row:first").addClass("skill-row-bugfix");
         }
       };
     });
